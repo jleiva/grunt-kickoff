@@ -1,0 +1,49 @@
+name = Sonambulo
+description = Base theme, naked markup & CSS
+screenshot = screenshot.png
+version = 0.1
+engine = phptemplate
+core = 7.x
+
+;-------------- F E A T U R E S -------------
+features[] = logo
+features[] = favicon
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = comment_user_verification
+features[] = main_menu
+features[] = secondary_menu
+
+;-------------- R E G I O N S -------------
+;regions_hidden[] = im_a_hidden_but_visibel_for_a_module
+
+regions[page_top]           = Page Top
+regions[page_bottom]        = Page Bottom
+
+regions[utility_bar]        = Utility Bar
+regions[header]             = Header
+regions[navigation]         = Navigation
+
+regions[help]               = Help
+regions[highlighted]        = Highlighted
+
+regions[above_content]      = Above Content
+regions[content_aside]      = Content Aside
+regions[content]            = Content
+regions[sidebar_first]      = Sidebar First
+regions[sidebar_second]     = Sidebar Second
+regions[below_content]      = Below Content
+
+regions[footer]             = Footer
+regions[closure]            = Closure
+
+;-------------- C S S -------------
+stylesheets[all][] = css/screen.css
+
+;-------------- J S -------------
+scripts[] = js/sonambulo.min.js
+
+
+
