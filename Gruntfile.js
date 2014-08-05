@@ -16,7 +16,14 @@ module.exports = function (grunt) {
           },
           js: {
             files: '<%= jshint.all %>',
-            tasks: ['jshint', 'uglify:dev']
+            tasks: ['newer:jshint', 'uglify:dev']
+          },
+          images: {
+            files: ['src-img/**/*.{png,jpg,gif}'],
+            tasks: ['newer:imagemin'],
+            options: {
+            spawn: false,
+            }
           }
         },
 
@@ -50,6 +57,23 @@ module.exports = function (grunt) {
           all: [
             'js/sonambulo.js'
           ]
+        },
+
+        imagemin: {
+          options: {
+            optimizationLevel: 3,
+            cache: false
+          },
+
+          dist: {
+            files: [{
+              // cwd is 'current working directory'
+              expand: true,                  // Enable dynamic expansion
+              cwd: 'src-img/',               // Src matches are relative to this path
+              src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+              dest: 'img/'                  // Destination path prefix
+            }]
+          }
         },
 
         // Concat & minify
@@ -97,7 +121,8 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('default', [
-        'jshint',
+        'imagemin',
+        'newer:jshint',
         'uglify:dev',
         'compass:dev',
         'watch'
